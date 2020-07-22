@@ -13,8 +13,6 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 import os
 import django_heroku
 
-django_heroku.settings(locals())
-
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -124,8 +122,22 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
+STATICROOT = 'staticfiles'
 STATIC_URL = '/static/'
-
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
+# LOGIN_REDIRECT_URL = "tasks:list"
+
+MEDIA_URL = "/media/"
+MEDIA_ROOT = os.path.join(BASE_DIR, "media/")
+
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+EMAIL_HOST = os.environ.get("EMAIL_HOST", 'smtp.example.com')
+EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER", 'wrong_user@example.com')
+EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD", 'wrong_password')
+EMAIL_PORT = int(os.environ.get("EMAIL_PORT", "25"))
+EMAIL_USE_TLS = bool(os.environ.get("EMAIL_USE_TLS", ""))
+
+django_heroku.settings(locals())

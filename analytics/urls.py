@@ -16,11 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url
+from django.views.static import serve
 
 from TAuth import views
+from analytics import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('static/<path:path>/', serve, {'document_root': settings.STATIC_ROOT, }),
     url(r'^connections/$', views.connections, name='connections'),
     url(r'^accounts/$', views.accounts, name='accounts'),
     url(r'^sign-in/$', views.sign_in, name='sign-in'),

@@ -23,7 +23,7 @@ class GAnalytics:
                     "ga_hits": "INTEGER"},
                 "dimensions": {
                     "ga_campaign": "STRING", "ga_sourceMedium": "STRING", "ga_keyword": "STRING",
-                    "ga_adContent": "STRING", "ga_date": "STRING", "ga_deviceCategory":"STRING"}},
+                    "ga_adContent": "STRING", "ga_date": "STRING", "ga_deviceCategory": "STRING"}},
             "GeneralByClientID": {
                 "metrics": {
                     "ga_pageviews": "INTEGER", "ga_sessionDuration": "FLOAT", "ga_hits": "INTEGER",
